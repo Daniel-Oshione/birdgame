@@ -13,7 +13,8 @@ public class birdgame{
 
      bird bird = new bird();
      frame.add(bird);
-    //  frame.pack();
+     frame.pack();
+     bird.requestFocus();
      frame.setVisible(true);
     }
 }

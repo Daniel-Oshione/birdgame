@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import javax.swing.*;
 
-public class bird extends JPanel implements ActionListener{
+public class bird extends JPanel implements ActionListener, KeyListener {
     int width = 1080;
     int height = 1080;
 
@@ -17,8 +17,8 @@ public class bird extends JPanel implements ActionListener{
     int birbX = width/8;
     int birbY = height/2;
 
-    int birbWidth = 54;
-    int birbHeight = 44;
+    int birbWidth = 94;
+    int birbHeight = 74;
     
     class BirbChar{
         int x = birbX;
@@ -33,17 +33,23 @@ public class bird extends JPanel implements ActionListener{
     }
     //birb logic
     BirbChar birbChar;
-    int velocityY = -8;
+    int velocityY = 0;
     int gravity = 1;
+
+
     Timer loopGame;
 
     bird(){
         setPreferredSize(new Dimension(width,height));
         // setBackground(Color.pink);
 
+        //these two lines make the key event work for the birbclass
+        setFocusable(true);
+        addKeyListener(this);
+
         //import images
         flappybgImg = new ImageIcon("./flappybg.jpg").getImage();
-        flappybirdImg = new ImageIcon("./flappybird.png").getImage();
+        flappybirdImg = new ImageIcon("./chicken.png").getImage();
         pipeUpImg = new ImageIcon("./toppipe.png").getImage();
         pipeDownImg = new ImageIcon("./bottompipe.png").getImage();
 
@@ -83,4 +89,24 @@ public class bird extends JPanel implements ActionListener{
         move();
         repaint();
     }
+
+
+
+    @Override
+    // to click on any key
+    public void keyPressed(KeyEvent e) {
+        if(e.getKeyCode() == KeyEvent.VK_W){
+            velocityY = -15;
+        }
+        if(e.getKeyCode() == KeyEvent.VK_SPACE){
+            velocityY = -15;
+        }
+    }
+    @Override
+    //to type in any key
+    public void keyTyped(KeyEvent e) {}
+
+    @Override
+    // to listen for when pressed key is reeased
+    public void keyReleased(KeyEvent e) {}
 }

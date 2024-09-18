@@ -6,7 +6,6 @@ public class birdgame{
      int height = 1080;
      
      JFrame frame = new JFrame("Bird Game");
-     frame.setVisible(true);
      frame.setSize(width, height);
      frame.setLocationRelativeTo(null);
      frame.setResizable(false);
@@ -14,8 +13,7 @@ public class birdgame{
 
      bird bird = new bird();
      frame.add(bird);
-     frame.pack();
+    //  frame.pack();
      frame.setVisible(true);
-     
     }
 }
